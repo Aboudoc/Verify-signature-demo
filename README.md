@@ -15,12 +15,13 @@ npx hardhat run scripts/deploy.js
 # Sign off chain using metamask
 
 - Hash the message:
+
   Get the message hash using the function messageHash() and copy it
 
-- Sign the message hash on the consle using metamask
+- Sign the message hash on the console using metamask:
 
 ```shell
-ethereum.enable()
+window.ethereum.enable()
 ```
 
 This will return a promise, open the promise and make sure it is 'fulfilled'
