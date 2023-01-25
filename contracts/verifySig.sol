@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-contract verifySig {
+contract VerifySig {
     function verify(
         string memory _message,
         bytes memory _sig,
@@ -29,7 +29,7 @@ contract verifySig {
         return
             keccak256(
                 abi.encodePacked(
-                    "\x19 Ethereum Signed Message:\n32",
+                    "\x19Ethereum Signed Message:\n32",
                     _messageHash
                 )
             );
@@ -53,7 +53,8 @@ contract verifySig {
             uint8 v
         )
     {
-        require(_sig.length == 65, "not a valid signature length");
+        require(_sig.length == 65, "invalid signature length");
+
         assembly {
             r := mload(add(_sig, 32))
             s := mload(add(_sig, 64))
